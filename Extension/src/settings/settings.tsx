@@ -1,11 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, ChangeEvent } from 'react';
 import { createRoot } from 'react-dom/client';
 import { type AppSettings } from '../models';
 import settingsConnector from '../settings-connector';
-
-type InputChangeEvent = Event & {
-  currentTarget: EventTarget & HTMLInputElement;
-};
 
 const App = () => {
   const [appSettings, setAppSettings] = useState<AppSettings | undefined>(
@@ -16,7 +12,7 @@ const App = () => {
     console.log('hello from settings!');
     settingsConnector
       .getAppSettings()
-      .then(settingsFromStorage => (appSettings = settingsFromStorage));
+      .then(settingsFromStorage => (setAppSettings(settingsFromStorage)));
   }, []);
 
   useEffect(() => {
@@ -25,7 +21,7 @@ const App = () => {
     }
   }, [appSettings?.displayHelpMessage]);
 
-  const updateDisplayHelpMessage = (e: InputChangeEvent) => {
+  const updateDisplayHelpMessage = (e: ChangeEvent<HTMLInputElement>) => {
     const target = e.target as HTMLInputElement;
     const displayHelpMessage = target.checked;
     settingsConnector.updateSettings({ displayHelpMessage });
@@ -36,7 +32,7 @@ const App = () => {
       <h1 style={{ padding: '1em 0' }}>Settings</h1>
       <section>
         <form>
-          <div class="form-group">
+          <div className="form-group">
             <input
               type="checkbox"
               id="show-help-message"
@@ -44,7 +40,7 @@ const App = () => {
               checked={appSettings.displayHelpMessage}
               onChange={updateDisplayHelpMessage}
             />
-            <label for="show-help-message">Show help message in console</label>
+            <label htmlFor="show-help-message">Show help message in console</label>
           </div>
         </form>
       </section>
