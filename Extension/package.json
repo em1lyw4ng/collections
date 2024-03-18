@@ -1,5 +1,5 @@
 {
-  "name": "REPLACEME",
+  "name": "Collections",
   "version": "1.0.0",
   "description": "",
   "main": "background.js",
@@ -11,7 +11,7 @@
     "build:firefox": "node scripts/firefox-build.js"
   },
   "keywords": [],
-  "author": "REPLACEME",
+  "author": "Emily Wang",
   "license": "MIT",
   "devDependencies": {
     "@types/react": "^18.2.14",

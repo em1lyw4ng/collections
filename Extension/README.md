@@ -1,4 +1,4 @@
-# REPLACEME
+# Collections
 
 ## Building and running locally
 

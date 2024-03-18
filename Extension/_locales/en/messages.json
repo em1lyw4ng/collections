@@ -1,10 +1,10 @@
 {
   "extension_name": {
-    "message": "REPLACEME",
+    "message": "Collections",
     "description": "The display name for the extension."
   },
   "extension_description": {
-    "message": "REPLACEME",
+    "message": "Save, organize, and view your tabs across different browsers",
     "description": "Description of what the extension does."
   }
 }
